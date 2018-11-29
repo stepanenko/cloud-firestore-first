@@ -2,7 +2,12 @@
 <h1>List</h1>
 <ul>
   <li *ngFor="let st of students | async">
-    {{ st.name }} {{ st.surname }}. Group: {{ st.group }}
+    <a href="#" (click)="show(st)">
+      <strong>
+        {{ st.name }} {{ st.surname }}
+      </strong>
+    </a><br>
+    Group: {{ st.group }}
   </li>
 </ul>
 
@@ -13,3 +18,8 @@
   <input name="surname" ngModel #surname="ngModel">
   <button type="submit">Add Student</button>
 </form>
+
+<h2>Selected student</h2>
+<div>
+  {{ (student | async)?.name }}
+</div>
